@@ -1,0 +1,40 @@
+// Project Description: Program that calculates one side and two angles using the Law of Sines
+// Inputs: Side a, side b, and angle A
+// Outputs: Angle B and C, side c
+//*************************************************************
+
+// Homework - Chapter 2, Problem 3C
+#define _USE_MATH_DEFINES // This was needed in order to use M_PI
+#include <iostream>
+#include <string>
+#include <cmath>
+
+
+//introduces namespace std
+using namespace std; 
+
+int main ( void )
+{
+ //Declare variables
+ double angle_A, angle_B, angle_C, side_a, side_b, side_c;
+ 
+ //Prompt User to enter sides and angle of the triangle
+ cout<<"Enter side a of the triangle: ";
+ cin>>side_a;
+ 
+ cout<<"Enter side b of the triangle: ";
+ cin>>side_b;
+ 
+ cout<<"Enter angle A for the triangle: ";
+ cin>>angle_A;
+   
+ //Equations to calculate angles and side of the triangle 
+ angle_B = asin(sin (angle_A * M_PI / 180) * side_b / side_a) * 180 / M_PI;
+ angle_C = 180 - angle_A - angle_B;
+ side_c = sin(angle_C * M_PI / 180) * side_a/sin(angle_A * M_PI / 180);
+ 
+ //Program output
+ cout<<"Base on the input you have entered, angle B is "<<angle_B<<" degrees, angle C is "<<angle_C<<" degrees, and side c is "<<side_c<<".";
+ 
+    return 0;
+}
